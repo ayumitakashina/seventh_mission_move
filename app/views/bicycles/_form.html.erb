@@ -1,0 +1,37 @@
+<%= form_for @bicycle, :html => { multipart: true } do |form| %>
+  <% if bicycle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bicycle.errors.count, "error") %> prohibited this bicycle from being saved:</h2>
+
+      <ul>
+      <% bicycle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :bicycle_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.number_field :value, id: :bicycle_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :bicycle_description %>
+  </div>
+
+  <ul>
+    <li>ファイル１：<%= file_field_tag "images[]", type: :file %></li>
+    <li>ファイル２：<%= file_field_tag "images[]", type: :file %></li>
+  </ul>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

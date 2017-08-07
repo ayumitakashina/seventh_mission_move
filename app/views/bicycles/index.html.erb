@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>自転車屋さん</h1>
+<% breadcrumb :bicycles %>
+<%= page_entries_info @bicycles %>
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>価格</th>
+      <th>説明</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bicycles.each do |bicycle| %>
+      <tr>
+        <td><%= bicycle.name %></td>
+        <td><%= bicycle.value %></td>
+        <td><%= bicycle.description %></td>
+        <td><%= link_to '詳細ページ', bicycle %></td>
+        <td><%= link_to '編集', edit_bicycle_path(bicycle) %></td>
+        <td><%= link_to '削除', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '出品ページ', new_bicycle_path %>
+
+<%= paginate @bicycles %>
+

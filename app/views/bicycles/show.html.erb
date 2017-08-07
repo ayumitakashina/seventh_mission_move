@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<% breadcrumb :show_bicycle, @bicycle %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bicycle.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @bicycle.value %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bicycle.description %>
+</p>
+  <% @bicycle.pictures.each do |pic| %>
+      <%= image_tag pic.image.url %>
+  <% end %>
+
+<%= link_to 'Edit', edit_bicycle_path(@bicycle) %> |
+<%= link_to 'Back', bicycles_path %>

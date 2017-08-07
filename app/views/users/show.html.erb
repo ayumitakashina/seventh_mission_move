@@ -1,0 +1,18 @@
+<ul>  
+      <li>  
+        <%= link_to user_path(@user) do %>
+          <div class="text">投稿数</div>  
+          <div class="num"><%= @user.bicycles.count %></div>  
+        <% end %>  
+      </li>  
+  </ul>
+
+
+
+<% @user.bicycles.each do |bicycle| %>
+      
+      <div class="bicycle-name">
+          <%= link_to bicycle.name %>
+      </div>
+
+  <% end %>
